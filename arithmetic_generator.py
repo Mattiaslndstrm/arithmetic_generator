@@ -5,6 +5,7 @@ import csv
 
 
 def get_command_line_input():
+    """Return an argparse.Namespace from command line arguments."""
     parser = argparse.ArgumentParser(
          description=('Generates csv-files with arithmetic problems for '
                       'easy import into Anki or other SRS-software.'))
@@ -20,3 +21,5 @@ def get_command_line_input():
                         help=('converts the first term to a single digit (for'
                               ' division the second term)'))
     return parser.parse_args()
+
+
