@@ -27,7 +27,7 @@ def get_command_line_input():
 # Function that connects input with the correct function
 
 
-def generate_num(args):
+def generate_nums(args):
     nums = []
     for n in range(args.terms):
         nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
