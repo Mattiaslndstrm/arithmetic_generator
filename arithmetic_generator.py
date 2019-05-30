@@ -50,11 +50,11 @@ def multiply(nums):
     return nums + [reduce(mul, nums)]
 
 # Divide function
-def multiply(nums):
+def divide(nums):
     return nums[:2] + [nums[0] / nums[1]]
 
 # Square function
-def multiply(nums):
+def square(nums):
     return [nums[0], nums[0] ** 2]
 
 # Filter easy problems
