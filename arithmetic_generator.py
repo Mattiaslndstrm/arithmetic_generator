@@ -2,6 +2,8 @@ from random import randint
 import os
 import argparse
 import csv
+from functools import reduce
+from operator import sub, mul, truediv
 
 
 def get_command_line_input():
@@ -22,19 +24,29 @@ def get_command_line_input():
                               ' division the second term)'))
     return parser.parse_args()
 
-# Filter easy problems
+# Function that connects input with the correct function
 
 # Add function
+def add(nums):
+    return nums + [sum(nums)]
 
 # Subtract function
+def subtract(nums):
+    return nums + [reduce(sub, nums)]
 
 # Multiply function
+def multiply(nums):
+    return nums + [reduce(mul, nums)]
 
 # Divide function
+def multiply(nums):
+    return nums + [reduce(truediv, nums)]
 
 # Square function
+def multiply(nums):
+    return [nums[0], nums[0] ** 2]
 
-# Function that connects input with the correct function
+# Filter easy problems
 
 # Write csv function
 
