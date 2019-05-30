@@ -34,8 +34,8 @@ def get_command_line_input():
 
 # Square function
 
-# If __name__ == '__main__'
-
 # Function that connects input with the correct function
 
 # Write csv function
+
+# If __name__ == '__main__'
