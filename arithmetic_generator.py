@@ -51,7 +51,7 @@ def multiply(nums):
 
 # Divide function
 def multiply(nums):
-    return nums + [reduce(truediv, nums)]
+    return nums[:2] + [nums[0] / nums[1]]
 
 # Square function
 def multiply(nums):
