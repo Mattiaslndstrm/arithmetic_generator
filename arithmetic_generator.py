@@ -26,6 +26,17 @@ def get_command_line_input():
 
 # Function that connects input with the correct function
 
+
+def generate_num(args):
+    nums = []
+    for n in range(args.terms):
+        nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
+    if args.single:
+        nums[0] = randint(1, 9) if args.op != 'd' else nums[1] = randint(1, 9)
+    return nums
+
+
+
 # Add function
 def add(nums):
     return nums + [sum(nums)]
