@@ -3,7 +3,7 @@ import os
 import argparse
 import csv
 from functools import reduce
-from operator import sub, mul, truediv
+from operator import sub, mul
 
 
 def get_command_line_input():
