@@ -32,7 +32,7 @@ def generate_nums(args):
     for _ in range(args.terms):
         nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
     if args.single:
-        nums[0] = randint(1, 9) if args.op != 'd' else nums[1] = randint(1, 9)
+        nums[0 if args.op != 'd' else 1] = randint(1, 9)
     return nums
 
 
