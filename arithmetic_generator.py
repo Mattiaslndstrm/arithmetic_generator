@@ -24,7 +24,16 @@ def get_command_line_input():
                               ' division the second term)'))
     return parser.parse_args()
 
+
 # Function that connects input with the correct function
+def operator(op, nums):
+    return {
+        'a': add,
+        's': subtract,
+        'm': multiply,
+        'd': divide,
+        'sq': square,
+    }.get(op, 'add')(nums)
 
 
 def generate_nums(args):
@@ -34,7 +43,6 @@ def generate_nums(args):
     if args.single:
         nums[0 if args.op != 'd' else 1] = randint(1, 9)
     return nums
-
 
 
 # Add function
