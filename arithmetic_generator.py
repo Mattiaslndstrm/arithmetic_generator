@@ -29,7 +29,7 @@ def get_command_line_input():
 
 def generate_nums(args):
     nums = []
-    for n in range(args.terms):
+    for _ in range(args.terms):
         nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
     if args.single:
         nums[0] = randint(1, 9) if args.op != 'd' else nums[1] = randint(1, 9)
@@ -60,5 +60,14 @@ def square(nums):
 # Filter easy problems
 
 # Write csv function
+def write_to_csv(args):
+    if os.path.exists(args.file):
+        consent = input('File exists. Press y to overwrite.')
+    if consent != 'y':
+        exit()
+    with open(args.file, 'w') as file:
+        w = csv.writer(file)
+        for _ in range(args.length):
+            w.writerow(operator(args.op, generate_nums(args)))
 
 # If __name__ == '__main__'
