@@ -22,4 +22,20 @@ def get_command_line_input():
                               ' division the second term)'))
     return parser.parse_args()
 
+# Filter easy problems
 
+# Add function
+
+# Subtract function
+
+# Multiply function
+
+# Divide function
+
+# Square function
+
+# If __name__ == '__main__'
+
+# Function that connects input with the correct function
+
+# Write csv function
