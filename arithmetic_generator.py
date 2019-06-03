@@ -51,6 +51,7 @@ def add(nums):
 
 # Subtract function
 def subtract(nums):
+    nums[0] = randint(10 ** len(nums[0]), 10 ** (len(nums[0]) + 1) - 1)
     return nums + [reduce(sub, nums)]
 
 # Multiply function
