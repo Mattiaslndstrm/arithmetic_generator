@@ -38,7 +38,7 @@ def operator(op, nums):
 
 def generate_nums(args):
     nums = []
-    for _ in range(args.terms + 1):
+    for _ in range(args.terms):
         nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
     if args.single:
         nums[0 if args.op != 'd' else 1] = randint(1, 9)
@@ -51,7 +51,7 @@ def add(nums):
 
 # Subtract function
 def subtract(nums):
-    nums[0] = randint(10 ** len(nums[0]), 10 ** (len(nums[0]) + 1) - 1)
+    nums[0] = randint(10 ** len(str(nums[0])), 10 ** (len(str(nums[0])) + 1) - 1)
     return nums + [reduce(sub, nums)]
 
 # Multiply function
@@ -60,6 +60,7 @@ def multiply(nums):
 
 # Divide function
 def divide(nums):
+    nums[1] = randint(2 if nums[1] < 10 else 11, 9 if nums[1] < 10 else 99)
     return nums[:2] + [nums[0] / nums[1]]
 
 # Square function
