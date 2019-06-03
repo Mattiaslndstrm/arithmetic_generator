@@ -70,6 +70,7 @@ def square(nums):
 
 # Write csv function
 def write_to_csv(args):
+    consent = 'n'
     if os.path.exists(args.file):
         consent = input('File exists. Press y to overwrite.')
     if consent != 'y':
@@ -79,4 +80,5 @@ def write_to_csv(args):
         for _ in range(args.length):
             w.writerow(operator(args.op, generate_nums(args)))
 
-# If __name__ == '__main__'
+if __name__ == '__main__':
+    write_to_csv(get_command_line_input())
