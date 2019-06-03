@@ -38,7 +38,7 @@ def operator(op, nums):
 
 def generate_nums(args):
     nums = []
-    for _ in range(args.terms):
+    for _ in range(args.terms + 1):
         nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
     if args.single:
         nums[0 if args.op != 'd' else 1] = randint(1, 9)
@@ -70,11 +70,10 @@ def square(nums):
 
 # Write csv function
 def write_to_csv(args):
-    consent = 'n'
     if os.path.exists(args.file):
         consent = input('File exists. Press y to overwrite.')
-    if consent != 'y':
-        exit()
+        if consent != 'y':
+            exit()
     with open(args.file, 'w') as file:
         w = csv.writer(file)
         for _ in range(args.length):
