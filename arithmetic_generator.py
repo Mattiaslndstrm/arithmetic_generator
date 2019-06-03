@@ -75,7 +75,7 @@ def write_to_csv(args):
         if consent != 'y':
             exit()
     with open(args.file, 'w') as file:
-        w = csv.writer(file)
+        w = csv.writer(file, delimiter=';')
         for _ in range(args.length):
             w.writerow(operator(args.op, generate_nums(args)))
 
