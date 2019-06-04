@@ -26,6 +26,16 @@ def get_command_line_input():
 
 
 def operator(op, nums):
+    """Returns the result of op(nums) where op corresponds to a funciton
+
+    Input:
+    op (str): specifies operator (a, s, m, d, sq)
+    nums (list): a list of numbers that the function corresponding to op will
+                 be applied to
+
+    Output:
+    list: The result of the function call op(nums)
+    """
     return {
         'a': add,
         's': subtract,
