@@ -24,7 +24,7 @@ def get_command_line_input():
                               ' division the second term)'))
     return parser.parse_args()
 
-# Function that connects input with the correct function
+
 def operator(op, nums):
     return {
         'a': add,
@@ -56,31 +56,28 @@ def validate(n, args):
     return True
 
 
-# Add function
 def add(nums):
     return nums + [sum(nums)]
 
-# Subtract function
+
 def subtract(nums):
-    nums[0] = randint(10 ** len(str(nums[0])), 10 ** (len(str(nums[0])) + 1) - 1)
+    nums[0] = randint(10 ** len(str(nums[0])), 10 ** (len(str(nums[0])) + 1)-1)
     return nums + [reduce(sub, nums)]
 
-# Multiply function
+
 def multiply(nums):
     return nums + [reduce(mul, nums)]
 
-# Divide function
+
 def divide(nums):
     nums[1] = randint(2 if nums[1] < 10 else 11, 9 if nums[1] < 10 else 99)
     return nums[:2] + [nums[0] / nums[1]]
 
-# Square function
+
 def square(nums):
     return [nums[0], nums[0] ** 2]
 
-# Filter easy problems
 
-# Write csv function
 def write_to_csv(args):
     if os.path.exists(args.file):
         consent = input('File exists. Press y to overwrite.')
@@ -90,6 +87,7 @@ def write_to_csv(args):
         w = csv.writer(file, delimiter=';')
         for _ in range(args.length):
             w.writerow(operator(args.op, generate_nums(args)))
+
 
 if __name__ == '__main__':
     write_to_csv(get_command_line_input())
