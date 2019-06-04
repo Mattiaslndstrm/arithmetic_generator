@@ -24,7 +24,6 @@ def get_command_line_input():
                               ' division the second term)'))
     return parser.parse_args()
 
-
 # Function that connects input with the correct function
 def operator(op, nums):
     return {
@@ -39,10 +38,24 @@ def operator(op, nums):
 def generate_nums(args):
     nums = []
     for _ in range(args.terms):
-        nums.append(randint(10 ** (args.magn - 1), (10 ** args.magn) - 1))
+        while True:
+            n = randint(10 ** (args.magn - 1), (10 ** args.magn) - 1)
+            if validate(n, args):
+                nums.append()
+                break
     if args.single:
         nums[0 if args.op != 'd' else 1] = randint(1, 9)
     return nums
+
+
+def validate(n, args):
+    if args.magn == 2:
+        return n % 10 != 0
+    elif args.magn >= 3:
+        return n % 100 > 15 and
+               n % 100 < 85 and
+               n % 5 != 0
+    return True
 
 
 # Add function
