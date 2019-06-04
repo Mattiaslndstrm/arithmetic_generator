@@ -41,7 +41,7 @@ def generate_nums(args):
         while True:
             n = randint(10 ** (args.magn - 1), (10 ** args.magn) - 1)
             if validate(n, args):
-                nums.append()
+                nums.append(n)
                 break
     if args.single:
         nums[0 if args.op != 'd' else 1] = randint(1, 9)
@@ -52,9 +52,7 @@ def validate(n, args):
     if args.magn == 2:
         return n % 10 != 0
     elif args.magn >= 3:
-        return n % 100 > 15 and
-               n % 100 < 85 and
-               n % 5 != 0
+        return n % 100 > 15 and n % 100 < 85 and n % 5 != 0
     return True
 
 
