@@ -46,6 +46,16 @@ def operator(op, nums):
 
 
 def generate_nums(args):
+    """Returns a list of terms where size and number is specifed in args
+
+    Input:
+    args (argparse.Namespace): Command line arguments
+
+    Output:
+    nums (list): a list of terms to be calculated where the size of the numbers
+                 is specified in args.magn and the number of numbers specified
+                 in args.terms.
+    """
     nums = []
     for _ in range(args.terms):
         while True:
@@ -59,6 +69,20 @@ def generate_nums(args):
 
 
 def validate(n, args):
+    """Returns True if n is not divisible by 10 or 5 or too close depending
+    on size of n else False
+
+    Input:
+    n (int): The number to be tested.
+    args (argparse.Namespace): Command line arguments
+
+    Output:
+    bool: True if n is between 11 and 99 and not divisible by 10
+          or 1000 and bigger and not divisible by 5 or +/- 15 of any number
+          divisible with 100
+          or single digit
+          else False
+    """
     if args.magn == 2:
         return n % 10 != 0
     elif args.magn >= 3:
@@ -67,28 +91,87 @@ def validate(n, args):
 
 
 def add(nums):
+    """Returns the list nums with the sum of the digits appended.
+
+    Input:
+    nums (list): a list of numbers
+
+    Output
+    list: the list nums with the sum of nums appended as the last
+                   element in the list
+    """
     return nums + [sum(nums)]
 
 
 def subtract(nums):
+    """Returns the list nums with the difference of the digits appended and the
+    first number changed to an order of magnitude larger
+
+    Input:
+    nums (list): a list of numbers
+
+    Output
+    list:: the list nums with the sum of nums appended as the last
+                   element in the list and the first number changed to a new
+                   random number one order of magnitude larger than the
+                   previous number.
+    """
     nums[0] = randint(10 ** len(str(nums[0])), 10 ** (len(str(nums[0])) + 1)-1)
     return nums + [reduce(sub, nums)]
 
 
 def multiply(nums):
+    """Returns the list nums with the product of the digits appended.
+
+    Input:
+    nums (list): a list of numbers
+
+    Output
+    list:: the list nums with the product of nums appended as the last
+                   element in the list
+    """
     return nums + [reduce(mul, nums)]
 
 
 def divide(nums):
+    """Returns the first and second element of nums with the quotient of those
+    appended. The second element is changed to number between 2 and
+
+    Input:
+    nums (list): a list of numbers
+
+    Output
+    list:: The first element, the second element and their quotient
+                   The second element is changed to number between 11 and 99 if
+                   larger.
+    """
     nums[1] = randint(2 if nums[1] < 10 else 11, 9 if nums[1] < 10 else 99)
     return nums[:2] + [nums[0] / nums[1]]
 
 
 def square(nums):
+    """Returns the first element in nums and its square.
+
+    Input:
+    nums (list): a list of numbers
+
+    Output:
+    list: the first number of nums and its square.
+    """
     return [nums[0], nums[0] ** 2]
 
 
 def write_to_csv(args):
+    """Writes the number of problems to the file specified in args if the file
+    doesn't exists or the user gives consent to overwrite.
+
+    Input:
+    args (argparse.Namespace): Command line arguments
+
+    Sideeffect:
+    exits the program if file exists and user doesn't input 'y'. Else writes
+    the number of problems to args.file.
+    """
     if os.path.exists(args.file):
         consent = input('File exists. Press y to overwrite.')
         if consent != 'y':
