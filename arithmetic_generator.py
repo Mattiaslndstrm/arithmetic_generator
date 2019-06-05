@@ -64,7 +64,7 @@ def generate_nums(args):
                 nums.append(n)
                 break
     if args.single:
-        nums[0 if args.op != 'd' else 1] = randint(1, 9)
+        nums[0 if args.op != 'd' else 1] = randint(2, 9)
     return nums
 
 
@@ -142,10 +142,9 @@ def divide(nums):
 
     Output
     list:: The first element, the second element and their quotient
-                   The second element is changed to number between 11 and 99 if
-                   larger.
+           The second element is changed to number between 11 and 99 if larger.
     """
-    nums[1] = randint(2 if nums[1] < 10 else 11, 9 if nums[1] < 10 else 99)
+    nums[1] = randint(11, 99) if nums[1] > 99 else nums[1]
     return nums[:2] + [nums[0] / nums[1]]
 
 
