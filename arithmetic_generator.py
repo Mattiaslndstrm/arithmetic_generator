@@ -25,26 +25,6 @@ def get_command_line_input():
     return parser.parse_args()
 
 
-def operator(op, nums):
-    """Returns the result of op(nums) where op corresponds to a function
-
-    Input:
-    op (str): specifies operator (a, s, m, d, sq)
-    nums (list): a list of numbers that the function corresponding to op will
-                 be applied to
-
-    Output:
-    list: The result of the function call op(nums)
-    """
-    return {
-        'a': add,
-        's': subtract,
-        'm': multiply,
-        'd': divide,
-        'sq': square,
-    }.get(op, 'add')(nums)
-
-
 def generate_nums(args):
     """Returns a list of terms where size and number is specified in args
 
@@ -88,6 +68,26 @@ def validate(n, args):
     elif args.magn >= 3:
         return n % 100 > 15 and n % 100 < 85 and n % 5 != 0
     return True
+
+
+def operator(op, nums):
+    """Returns the result of op(nums) where op corresponds to a function
+
+    Input:
+    op (str): specifies operator (a, s, m, d, sq)
+    nums (list): a list of numbers that the function corresponding to op will
+                 be applied to
+
+    Output:
+    list: The result of the function call op(nums)
+    """
+    return {
+        'a': add,
+        's': subtract,
+        'm': multiply,
+        'd': divide,
+        'sq': square,
+    }.get(op, 'add')(nums)
 
 
 def add(nums):
