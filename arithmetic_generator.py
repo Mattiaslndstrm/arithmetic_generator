@@ -26,7 +26,7 @@ def get_command_line_input():
 
 
 def operator(op, nums):
-    """Returns the result of op(nums) where op corresponds to a funciton
+    """Returns the result of op(nums) where op corresponds to a function
 
     Input:
     op (str): specifies operator (a, s, m, d, sq)
@@ -46,7 +46,7 @@ def operator(op, nums):
 
 
 def generate_nums(args):
-    """Returns a list of terms where size and number is specifed in args
+    """Returns a list of terms where size and number is specified in args
 
     Input:
     args (argparse.Namespace): Command line arguments
@@ -167,7 +167,7 @@ def write_to_csv(args):
     Input:
     args (argparse.Namespace): Command line arguments
 
-    Sideeffect:
+    Side-effects:
     exits the program if file exists and user doesn't input 'y'. Else writes
     the number of problems to args.file.
     """
