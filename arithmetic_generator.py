@@ -186,7 +186,7 @@ def write_to_csv(args):
 if __name__ == '__main__':
     args = get_command_line_input()
     if os.path.exists(args.file):
-        consent = input('File exists. Press y to overwrite.')
+        consent = input('File exists. Press y to overwrite: ')
         if consent != 'y':
             exit()
     write_to_csv(args)
