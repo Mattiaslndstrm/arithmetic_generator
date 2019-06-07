@@ -2,6 +2,7 @@ from random import randint
 import os
 import argparse
 import csv
+import sys
 from functools import reduce
 from operator import sub, mul
 
@@ -171,10 +172,15 @@ def write_to_csv(args):
     exits the program if file exists and user doesn't input 'y'. Else writes
     the number of problems to args.file.
     """
-    with open(args.file, 'w') as file:
-        w = csv.writer(file, delimiter=';')
-        for _ in range(args.length):
-            w.writerow(operator(args.op, generate_nums(args)))
+    try:
+        with open(args.file, 'w') as file:
+            w = csv.writer(file, delimiter=';')
+            for _ in range(args.length):
+                w.writerow(operator(args.op, generate_nums(args)))
+    except IOError as e:
+        print('IOError: ', e)
+    except:
+        print('Unexpected error: ', sys.exc_info()[0])
 
 
 if __name__ == '__main__':
