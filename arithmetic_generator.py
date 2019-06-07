@@ -171,10 +171,6 @@ def write_to_csv(args):
     exits the program if file exists and user doesn't input 'y'. Else writes
     the number of problems to args.file.
     """
-    if os.path.exists(args.file):
-        consent = input('File exists. Press y to overwrite.')
-        if consent != 'y':
-            exit()
     with open(args.file, 'w') as file:
         w = csv.writer(file, delimiter=';')
         for _ in range(args.length):
@@ -182,4 +178,9 @@ def write_to_csv(args):
 
 
 if __name__ == '__main__':
-    write_to_csv(get_command_line_input())
+    args = get_command_line_input()
+    if os.path.exists(args.file):
+        consent = input('File exists. Press y to overwrite.')
+        if consent != 'y':
+            exit()
+    write_to_csv(args)
